@@ -6,17 +6,17 @@ var nodeExternals = require("webpack-node-externals")
 module.exports = {
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "index.bundle.js"
+    filename: "index.bundle.js",
   },
 
   devServer: {
     port: 8080,
     watchContentBase: true,
+    hot: true,
   },
 
-
-  externalsPresets: { "node": true }, 
-  externals: [nodeExternals()],
+  // externalsPresets: { node: true },
+  // externals: [nodeExternals()],
 
   module: {
     rules: [
@@ -25,10 +25,17 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
 
-  plugins: [new HtmlWebpackPlugin({ template: "./public/index.html" }), new ESLintPlugin()]
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({ template: "./public/index.html" }),
+    new ESLintPlugin(),
+  ],
 }
