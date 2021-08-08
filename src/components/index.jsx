@@ -1,3 +1,4 @@
+import GlobalCss from "./GlobalCss"
 import Navbar from "./Navbar"
 
-export { Navbar }
+export { Navbar, GlobalCss }
