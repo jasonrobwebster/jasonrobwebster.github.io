@@ -1,6 +1,7 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const ESLintPlugin = require("eslint-webpack-plugin")
+var nodeExternals = require("webpack-node-externals")
 
 module.exports = {
   output: {
@@ -12,6 +13,10 @@ module.exports = {
     port: 8080,
     watchContentBase: true,
   },
+
+
+  externalsPresets: { "node": true }, 
+  externals: [nodeExternals()],
 
   module: {
     rules: [
