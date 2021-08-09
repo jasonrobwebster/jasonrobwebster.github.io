@@ -39,7 +39,7 @@ const Content = styled.div`
 
 const App = () => {
   return (
-    <HashRouter>
+    <HashRouter basename="/">
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyle />
         <Navbar />
