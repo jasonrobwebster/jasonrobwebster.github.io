@@ -12,7 +12,7 @@ const Nav = styled.nav`
   align-items: center;
 
   width: 100%;
-  height: 80px;
+  height: 3rem;
 
   background-color: ${(props) => props.theme.bg};
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
@@ -24,48 +24,24 @@ const Nav = styled.nav`
 
 Nav.Menu = styled.div`
   display: flex;
-  flex-direction: column;
-
-  position: fixed;
-  width: 100%;
-  left: 110%;
-  top: 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
   background-color: ${(props) => props.theme.bg};
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
   &.active {
     left: 0;
   }
 
-  & > * {
-    margin-bottom: 10px;
-  }
-
-  @media (${device.tablet}) {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    position: static;
-    left: auto;
-
-    box-shadow: none;
-
-    & > * {
-      margin-bottom: 0px;
-    }
-
-    & > *:not(:last-child) {
-      margin-right: 50px;
-    }
+  & > *:not(:last-child) {
+    margin-right: 2.2rem;
   }
 `
 
 Nav.Link = styled(NavLink)`
   color: ${(props) => props.theme.text.color};
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: bold;
   text-decoration: none;
 `
