@@ -2,15 +2,18 @@ import React from "react"
 
 import { Route, Switch } from "react-router-dom"
 
+import Blog from "./Blog"
+import Contact from "./Contact"
+import Home from "./Home"
+import Tools from "./Tools"
+
 const Pages = () => {
   return (
     <Switch>
-      <Route path="/" exact>
-        Home
-      </Route>
-      <Route path="/blog">Blog</Route>
-      <Route path="/tools">Tools</Route>
-      <Route path="/contact">Contact</Route>
+      <Route exact path="/" component={Home} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/tools" component={Tools} />
+      <Route path="/contact" component={Contact} />
     </Switch>
   )
 }

@@ -12,17 +12,38 @@ const GlobalStyle = createGlobalStyle`
   }
 
   :root {
+    background-color: ${(props) => props.theme.bg};
     font-family: 'Roboto', sans-serif;
     font-size: ${(props) => props.fontSize};
   }
 
   body {
-    background-color: ${(props) => props.theme.bg};
-
-    margin: 0;
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  p {
+    color: ${(props) => props.theme.text.color};
+
+    font-size: 1rem;
+    line-height: 1.25em;
+    text-align: justify;
+    
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  h1 {
+    color: ${(props) => props.theme.text.color};
+
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.166em;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
   }
 
 `
