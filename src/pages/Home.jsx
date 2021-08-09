@@ -28,9 +28,9 @@ const Home = () => {
         the ropes in product management. In my day to day I use tools like
         React, Express, GCP, PostgreSQL, and Python to build{" "}
         <A href="https://kandua.com">Kandua</A> and gain insights into what its
-        customer base is doing on the platform. I have previously been a data
-        science tutor at <A href="https://explore-datascience.net/">Explore</A>{" "}
-        and a consultant at <A href="https://percept.co.za">Percept</A>.
+        customer base is doing on the platform. Previously, I was a data science
+        tutor at <A href="https://explore-datascience.net/">Explore</A> and a
+        consultant at <A href="https://percept.co.za">Percept</A>.
       </p>
       <h1>This blog</h1>
       <p>
