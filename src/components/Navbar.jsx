@@ -14,7 +14,7 @@ const Nav = styled.nav`
   width: 100%;
   height: 3rem;
 
-  background-color: ${(props) => props.theme.bg};
+  background-color: ${(props) => props.theme.primary};
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
   @media (${device.tablet}) {
@@ -28,29 +28,36 @@ Nav.Menu = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${(props) => props.theme.bg};
-
-  &.active {
-    left: 0;
-  }
-
   & > *:not(:last-child) {
     margin-right: 2.2rem;
   }
 `
 
 Nav.Link = styled(NavLink)`
-  color: ${(props) => props.theme.text.color};
+  color: ${(props) => props.theme.text.muted};
+
   font-size: 1.1rem;
   font-weight: bold;
   text-decoration: none;
+
+  transition: color 0.15s;
+
+  &.active {
+    color: ${(props) => props.theme.text.light};
+  }
+
+  &:hover {
+    color: ${(props) => props.theme.text.light};
+  }
 `
 
 const Navbar = () => {
   return (
     <Nav>
       <Nav.Menu>
-        <Nav.Link to="/">Home</Nav.Link>
+        <Nav.Link to="/" exact>
+          Home
+        </Nav.Link>
         <Nav.Link to="/blog">Blog</Nav.Link>
         <Nav.Link to="/tools">Tools</Nav.Link>
         <Nav.Link to="/contact">Contact</Nav.Link>
