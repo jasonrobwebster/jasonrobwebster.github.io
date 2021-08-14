@@ -1,11 +1,12 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const ESLintPlugin = require("eslint-webpack-plugin")
+const CopyPlugin = require("copy-webpack-plugin")
 var nodeExternals = require("webpack-node-externals")
 
 module.exports = {
   output: {
-    path: path.join(__dirname, "/dist"),
+    path: path.join(__dirname, "/build"),
     filename: "index.bundle.js",
   },
 
@@ -35,6 +36,17 @@ module.exports = {
   },
 
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "public",
+          globOptions: {
+            dot: true,
+            ignore: ["**/index.html"],
+          },
+        },
+      ],
+    }),
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
     new ESLintPlugin(),
   ],
