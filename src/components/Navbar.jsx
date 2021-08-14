@@ -56,7 +56,7 @@ const Navbar = () => {
     <Nav>
       <Nav.Menu>
         <Nav.Link to="/" exact>
-          Home
+          About
         </Nav.Link>
         <Nav.Link to="/blog">Blog</Nav.Link>
         <Nav.Link to="/tools">Tools</Nav.Link>
