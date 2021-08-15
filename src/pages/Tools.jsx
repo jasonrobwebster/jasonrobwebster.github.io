@@ -1,7 +1,9 @@
 import React from "react"
 
+import { PageContent } from "../shared/styles"
+
 const Tools = () => {
-  return <div>Tools</div>
+  return <PageContent>Tools</PageContent>
 }
 
 export default Tools

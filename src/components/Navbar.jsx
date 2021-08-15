@@ -25,12 +25,14 @@ const Nav = styled.nav`
 Nav.Menu = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  width: 100%;
+  max-width: 800px;
 
-  & > *:not(:last-child) {
+  /* & > *:not(:last-child) {
     margin-right: 2.2rem;
-  }
+  } */
 `
 
 Nav.Link = styled(NavLink)`

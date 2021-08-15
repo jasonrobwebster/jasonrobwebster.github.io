@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 import { createGlobalStyle } from "styled-components"
 
@@ -72,7 +72,6 @@ const GlobalCss = () => {
     function handleResize() {
       setWindowSize(getWindowSize())
     }
-
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])

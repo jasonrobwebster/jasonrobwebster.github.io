@@ -1,11 +1,13 @@
 import React from "react"
 
+import fp from "lodash/fp"
 import styled from "styled-components"
 import { Route, Switch, useParams, useRouteMatch } from "react-router-dom"
 
-import BlogCard from "../components/BlogCard"
+import { BlogCard, FooterBar } from "../components"
 import blogs from "./blogs"
 import device from "../shared/devices"
+import { PageContent } from "../shared/styles"
 
 const isProduction = process.env.NODE_ENV === "production"
 
@@ -52,53 +54,51 @@ const CardContent = styled.div`
   }
 `
 
+function findBlogBySlug(slug) {
+  return blogs.find((blog) => blog.slug === slug)
+}
+
 const Article = () => {
   const { slug } = useParams()
-  const blog = blogs.find(
-    (blog) => blog.slug === slug && isProduction && blog.published === true
-  )
+  const blog = findBlogBySlug(slug)
   const blogComponent = blog.component
-  return <React.Fragment>{React.createElement(blogComponent)}</React.Fragment>
+  return (
+    <React.Fragment>
+      <PageContent>{React.createElement(blogComponent)}</PageContent>
+      <FooterBar lastUpdated={blog.lastUpdated} />
+    </React.Fragment>
+  )
 }
 
 const Blog = () => {
-  const { path } = useRouteMatch()
+  const { url, path } = useRouteMatch()
+  const publishedBlogs = fp.filter((blog) =>
+    isProduction ? blog.published : true
+  )(blogs)
+  const lastBlog = fp.maxBy((blog) => blog.lastUpdated)(publishedBlogs)
+
   return (
     <React.Fragment>
       <Switch>
         <Route exact path={path}>
-          <CardContent>
-            <BlogCard
-              title="Building this blog 1"
-              imageLink="images/jason.jpg"
-              description="Testing"
-              tag="Tech"
-            />
-            <BlogCard
-              title="Building this blog 2"
-              imageLink="./images/jason.jpg"
-              description="Testing"
-              tag="Tech"
-            />
-            <BlogCard
-              title="Building this blog 3"
-              imageLink="./images/jason.jpg"
-              description="Testing"
-              tag="Tech"
-            />
-            <BlogCard
-              title="Building this blog 4"
-              imageLink="./images/jason.jpg"
-              description="Testing"
-              tag="Tech"
-            />
-            <BlogCard
-              title="Building this blog 5"
-              imageLink="./images/jason.jpg"
-              description="Testing"
-              tag="Tech"
-            />
-          </CardContent>
+          <PageContent>
+            <CardContent>
+              {fp.flow(
+                fp.sortBy((blog) => -(blog.lastUpdated || new Date())),
+                fp.map((blog) => (
+                  <BlogCard
+                    key={blog.slug}
+                    url={`${url}/${blog.slug}`}
+                    title={blog.title}
+                    imageLink={blog.image}
+                    description={blog.description}
+                    tag={blog.tag}
+                  />
+                ))
+              )(publishedBlogs)}
+            </CardContent>
+          </PageContent>
+          <FooterBar lastUpdated={lastBlog ? lastBlog.lastUpdated : null} />
         </Route>
         <Route path={`${path}/:slug`}>
           <Article />

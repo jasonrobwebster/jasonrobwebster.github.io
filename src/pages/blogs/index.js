@@ -2,9 +2,13 @@ import BuildingMyOwnBlog from "./BuildingMyOwnBlog"
 
 const blogs = [
   {
-    title: "Building my own personal blog",
-    slug: "building-my-own-blog",
+    title: "Building a personal blog",
+    description: "How I built this blog using React, .",
+    tag: "Tech",
+    slug: "building-a-personal-blog",
     component: BuildingMyOwnBlog,
+    image: "images/jason.jpg",
+    lastUpdated: new Date(2021, 7, 15),
     published: false,
   },
 ]

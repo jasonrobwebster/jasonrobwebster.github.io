@@ -1,9 +1,12 @@
 import React from "react"
 
-import styled from "styled-components"
+import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
+import styled from "styled-components"
 
-const Card = styled.div`
+import { HyphenatedText } from "./text"
+
+const Card = styled(Link)`
   display: block;
   position: relative;
   top: 0px;
@@ -13,15 +16,17 @@ const Card = styled.div`
   min-height: 17.5rem;
 
   background-color: ${(props) => props.theme.light};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   overflow: hidden;
+
+  text-decoration: none;
 
   transition: top 0.2s ease-out, box-shadow 0.2s ease-out;
 
   &:hover {
     top: -5px;
-    box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 9px 18px rgba(0, 0, 0, 0.2);
   }
 `
 
@@ -65,11 +70,13 @@ Card.Description = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  max-height: 2.27rem;
 
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1em;
 
   color: ${(props) => props.theme.text.color};
+  overflow: hidden;
 
   &:not(:last-child) {
   }
@@ -86,15 +93,19 @@ Card.Tag = styled.div`
   color: ${(props) => props.theme.text.muted};
 `
 
-const BlogCard = ({ title, imageLink, description, tag }) => {
+const BlogCard = ({ url, title, imageLink, description, tag }) => {
   return (
     <React.Fragment>
-      <Card>
+      <Card to={url}>
         <Card.Content>
           <Card.Image src={imageLink} />
           <Card.Text>
-            <Card.Title>{title}</Card.Title>
-            <Card.Description>{description}</Card.Description>
+            <Card.Title>
+              <HyphenatedText>{title}</HyphenatedText>
+            </Card.Title>
+            <Card.Description>
+              <HyphenatedText>{description}</HyphenatedText>
+            </Card.Description>
             <Card.Tag>{tag}</Card.Tag>
           </Card.Text>
         </Card.Content>
@@ -104,6 +115,7 @@ const BlogCard = ({ title, imageLink, description, tag }) => {
 }
 
 BlogCard.propTypes = {
+  url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   imageLink: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

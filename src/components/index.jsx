@@ -1,4 +1,6 @@
+import BlogCard from "./BlogCard"
+import FooterBar from "./FooterBar"
 import GlobalCss from "./GlobalCss"
 import Navbar from "./Navbar"
 
-export { Navbar, GlobalCss }
+export { BlogCard, Navbar, GlobalCss, FooterBar }

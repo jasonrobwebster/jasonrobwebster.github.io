@@ -1,7 +1,9 @@
 import React from "react"
 
+import { PageContent } from "../shared/styles"
+
 const Contact = () => {
-  return <div>Contact</div>
+  return <PageContent>Contact</PageContent>
 }
 
 export default Contact
