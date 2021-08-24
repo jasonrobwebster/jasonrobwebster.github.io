@@ -1,8 +1,11 @@
 import React from "react"
 
+import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { Link } from "react-router-dom"
+import { IoLogoLinkedin, IoLogoTwitter, IoMail } from "react-icons/io5"
+
+import { A } from "./text"
 
 const Footer = styled.footer`
   display: flex;
@@ -10,7 +13,8 @@ const Footer = styled.footer`
   align-items: center;
 
   width: 100%;
-  height: 3rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 
   background-color: ${(props) => props.theme.primary};
 `
@@ -20,13 +24,51 @@ Footer.Content = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 
   height: 100%;
+  min-height: 1rem;
   width: 90%;
   max-width: 800px;
 
   /* padding-top: 1rem; */
   /* padding-bottom: 1.25rem; */
+`
+
+Footer.Socials = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  height: 100%;
+
+  & > * {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+  }
+`
+
+Footer.SocialLink = styled(A)`
+  display: flex;
+  align-items: center;
+`
+
+Footer.Mail = styled(IoMail).attrs((props) => ({
+  size: "1.2rem",
+}))`
+  color: ${(props) => props.theme.text.light};
+`
+
+Footer.LinkedIn = styled(IoLogoLinkedin).attrs((props) => ({
+  size: "1.2rem",
+}))`
+  color: ${(props) => props.theme.text.light};
+`
+
+Footer.Twitter = styled(IoLogoTwitter).attrs((props) => ({
+  size: "1.2rem",
+}))`
+  color: ${(props) => props.theme.text.light};
 `
 
 Footer.LinkRoll = styled.div`
@@ -60,6 +102,17 @@ const FooterBar = ({ lastUpdated }) => {
       <Footer>
         <Footer.Content>
           <Footer.Text>Copyright &copy; Jason Webster 2021</Footer.Text>
+          <Footer.Socials>
+            <Footer.SocialLink href="mailto:jason@kandua.com">
+              <Footer.Mail />
+            </Footer.SocialLink>
+            <Footer.SocialLink href="https://twitter.com/jasonrobwebster">
+              <Footer.Twitter />
+            </Footer.SocialLink>
+            <Footer.SocialLink>
+              <Footer.LinkedIn />
+            </Footer.SocialLink>
+          </Footer.Socials>
           {lastUpdated && (
             <Footer.Text>
               Last updated:{" "}

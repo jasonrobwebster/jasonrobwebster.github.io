@@ -1,3 +1,4 @@
+import A from "./A"
 import HyphenatedText from "./HyphenatedText"
 
-export { HyphenatedText }
+export { A, HyphenatedText }

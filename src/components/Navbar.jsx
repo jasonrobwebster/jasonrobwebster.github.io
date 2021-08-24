@@ -62,7 +62,7 @@ const Navbar = () => {
         </Nav.Link>
         <Nav.Link to="/blog">Blog</Nav.Link>
         <Nav.Link to="/tools">Tools</Nav.Link>
-        <Nav.Link to="/contact">Contact</Nav.Link>
+        {/* <Nav.Link to="/contact">Contact</Nav.Link> */}
       </Nav.Menu>
     </Nav>
   )

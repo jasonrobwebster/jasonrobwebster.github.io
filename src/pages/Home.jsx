@@ -3,17 +3,8 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import { FooterBar } from "../components"
-import { HyphenatedText } from "../components/text"
 import { PageContent } from "../shared/styles"
-
-const A = ({ children, ...props }) => {
-  return (
-    <a {...props} target="_blank">
-      {children}
-    </a>
-  )
-}
-A.propTypes = { children: PropTypes.string.isRequired }
+import { A, HyphenatedText } from "../components/text"
 
 const Home = () => {
   return (
