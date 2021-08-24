@@ -28,9 +28,11 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     line-height: 1.25em;
     text-align: justify;
+
+    padding-bottom: 1em;
     
-    &:not(:last-child) {
-      margin-bottom: 1em;
+    &:last-child {
+      padding-bottom: 0;
     }
   }
 
@@ -41,8 +43,10 @@ const GlobalStyle = createGlobalStyle`
     font-weight: bold;
     line-height: 1.166em;
 
-    &:not(:last-child) {
-      margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    
+    &:last-child {
+      padding-bottom: 0;
     }
   }
 
