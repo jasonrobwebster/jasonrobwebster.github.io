@@ -109,7 +109,7 @@ const FooterBar = ({ lastUpdated }) => {
             <Footer.SocialLink href="https://twitter.com/jasonrobwebster">
               <Footer.Twitter />
             </Footer.SocialLink>
-            <Footer.SocialLink>
+            <Footer.SocialLink href="https://www.linkedin.com/in/jasonrobwebster/">
               <Footer.LinkedIn />
             </Footer.SocialLink>
           </Footer.Socials>
