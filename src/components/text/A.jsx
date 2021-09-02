@@ -9,6 +9,9 @@ const A = ({ children, ...props }) => {
     </a>
   )
 }
-A.propTypes = { children: PropTypes.string.isRequired }
+A.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
+}
 
 export default A
