@@ -52,22 +52,6 @@ const CardContent = styled.div`
   }
 `
 
-function findBlogBySlug(slug) {
-  return blogs.find((blog) => blog.slug === slug)
-}
-
-const Article = () => {
-  const { slug } = useParams()
-  const blog = findBlogBySlug(slug)
-  const blogComponent = blog.component
-  return (
-    <React.Fragment>
-      <PageContent>{React.createElement(blogComponent)}</PageContent>
-      <FooterBar lastUpdated={blog.lastUpdated} />
-    </React.Fragment>
-  )
-}
-
 const Blog = ({ location }) => {
   const publishedBlogs = fp.filter((blog) =>
     isProduction ? blog.published : true
@@ -77,23 +61,21 @@ const Blog = ({ location }) => {
   return (
     <React.Fragment>
       <PageWrapper lastUpdated={lastBlog ? lastBlog.lastUpdated : null}>
-        <PageContent>
-          <CardContent>
-            {fp.flow(
-              fp.sortBy((blog) => -(blog.lastUpdated || new Date())),
-              fp.map((blog) => (
-                <BlogCard
-                  key={blog.slug}
-                  url={`${location.pathname}/${blog.slug}`}
-                  title={blog.title}
-                  imageLink={blog.image}
-                  description={blog.description}
-                  tag={blog.tag}
-                />
-              ))
-            )(publishedBlogs)}
-          </CardContent>
-        </PageContent>
+        <CardContent>
+          {fp.flow(
+            fp.sortBy((blog) => -(blog.lastUpdated || new Date())),
+            fp.map((blog) => (
+              <BlogCard
+                key={blog.slug}
+                url={`${location.pathname}/${blog.slug}`}
+                title={blog.title}
+                imageLink={blog.image}
+                description={blog.description}
+                tag={blog.tag}
+              />
+            ))
+          )(publishedBlogs)}
+        </CardContent>
       </PageWrapper>
     </React.Fragment>
   )
