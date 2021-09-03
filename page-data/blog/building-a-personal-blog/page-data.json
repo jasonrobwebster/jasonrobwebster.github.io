@@ -1,5 +1,5 @@
 {
-    "componentChunkName": "component---src-templates-blog-article-jsx",
-    "path": "/blog/building-a-personal-blog",
-    "result": {"pageContext":{"renderString":"<div data-reactroot=\"\">Test</div>","lastUpdated":"2021-08-14T22:00:00.000Z"}},
+    "componentChunkName": "component---src-pages-blog-building-a-personal-blog-jsx",
+    "path": "/blog/building-a-personal-blog/",
+    "result": {"pageContext":{}},
     "staticQueryHashes": []}
