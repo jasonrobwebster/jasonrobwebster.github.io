@@ -4,7 +4,7 @@
   "description": "My personal site",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --mode development",
+    "dev": "gatsby develop",
     "prebuild": "rm -rf ./build",
     "build": "webpack --mode production",
     "predeploy": "npm run build",
@@ -32,6 +32,9 @@
     ]
   },
   "dependencies": {
+    "gatsby": "^3.13.0",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-styled-components": "^4.13.0",
     "hyphenated": "^1.1.1",
     "hyphenated-en-gb": "^1.2.0",
     "lodash": "^4.17.21",
@@ -40,8 +43,8 @@
     "react-dom": "^17.0.2",
     "react-hyphen": "^1.4.0",
     "react-icons": "^4.2.0",
-    "react-router-dom": "^5.2.0",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.0",
+    "styled-reset": "^4.3.4"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

@@ -7,7 +7,7 @@ const blogs = [
     tag: "Tech",
     slug: "building-a-personal-blog",
     component: BuildingMyOwnBlog,
-    image: "images/blog.png",
+    image: "blog.png",
     lastUpdated: new Date(2021, 7, 15),
     published: false,
   },

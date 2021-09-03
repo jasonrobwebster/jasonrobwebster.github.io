@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from "react"
 
 import { createGlobalStyle } from "styled-components"
+import reset from "styled-reset"
+
+const isBrowser = typeof window !== "undefined"
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+  ${reset}
 
   *, *::before, *::after {
     box-sizing: border-box;
@@ -54,8 +57,8 @@ const GlobalStyle = createGlobalStyle`
 
 function getWindowSize() {
   return {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: isBrowser ? window.innerWidth : 1440,
+    height: isBrowser ? window.innerHeight : 900,
   }
 }
 
@@ -72,13 +75,15 @@ const GlobalCss = () => {
   const [windowSize, setWindowSize] = useState(getWindowSize())
   const [fontSize, setFontSize] = useState(getFontSize(windowSize))
 
-  useEffect(() => {
-    function handleResize() {
-      setWindowSize(getWindowSize())
-    }
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+  if (isBrowser) {
+    useEffect(() => {
+      function handleResize() {
+        setWindowSize(getWindowSize())
+      }
+      window.addEventListener("resize", handleResize)
+      return () => window.removeEventListener("resize", handleResize)
+    }, [])
+  }
 
   useEffect(() => {
     setFontSize(getFontSize(windowSize))

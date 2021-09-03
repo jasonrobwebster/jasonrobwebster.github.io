@@ -2,12 +2,11 @@ import React from "react"
 
 import fp from "lodash/fp"
 import styled from "styled-components"
-import { Route, Switch, useParams, useRouteMatch } from "react-router-dom"
 
-import { BlogCard, FooterBar } from "../components"
-import blogs from "./blogs"
+import blogs from "../blogs"
 import device from "../shared/devices"
 import { PageContent } from "../shared/styles"
+import { BlogCard, FooterBar, PageWrapper } from "../components"
 
 const isProduction = process.env.NODE_ENV === "production"
 
@@ -70,8 +69,7 @@ const Article = () => {
   )
 }
 
-const Blog = () => {
-  const { url, path } = useRouteMatch()
+const Blog = ({ location }) => {
   const publishedBlogs = fp.filter((blog) =>
     isProduction ? blog.published : true
   )(blogs)
@@ -79,31 +77,25 @@ const Blog = () => {
 
   return (
     <React.Fragment>
-      <Switch>
-        <Route exact path={path}>
-          <PageContent>
-            <CardContent>
-              {fp.flow(
-                fp.sortBy((blog) => -(blog.lastUpdated || new Date())),
-                fp.map((blog) => (
-                  <BlogCard
-                    key={blog.slug}
-                    url={`${url}/${blog.slug}`}
-                    title={blog.title}
-                    imageLink={blog.image}
-                    description={blog.description}
-                    tag={blog.tag}
-                  />
-                ))
-              )(publishedBlogs)}
-            </CardContent>
-          </PageContent>
-          <FooterBar lastUpdated={lastBlog ? lastBlog.lastUpdated : null} />
-        </Route>
-        <Route path={`${path}/:slug`}>
-          <Article />
-        </Route>
-      </Switch>
+      <PageWrapper lastUpdated={lastBlog ? lastBlog.lastUpdated : null}>
+        <PageContent>
+          <CardContent>
+            {fp.flow(
+              fp.sortBy((blog) => -(blog.lastUpdated || new Date())),
+              fp.map((blog) => (
+                <BlogCard
+                  key={blog.slug}
+                  url={`${location.pathname}/${blog.slug}`}
+                  title={blog.title}
+                  imageLink={blog.image}
+                  description={blog.description}
+                  tag={blog.tag}
+                />
+              ))
+            )(publishedBlogs)}
+          </CardContent>
+        </PageContent>
+      </PageWrapper>
     </React.Fragment>
   )
 }
