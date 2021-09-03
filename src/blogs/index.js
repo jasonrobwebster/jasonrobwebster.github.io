@@ -1,5 +1,5 @@
-import React from "react"
-import ReactDOMServer from "react-dom/server"
+const React = require("react")
+const ReactDOMServer = require("react-dom/server")
 
 require("@babel/register")({
   presets: ["@babel/preset-env", "@babel/preset-react"],
@@ -25,4 +25,4 @@ const blogs = [
   },
 ]
 
-export default blogs
+module.exports = blogs

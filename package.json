@@ -4,7 +4,7 @@
   "description": "My personal site",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_OPTIONS='-r esm' gatsby develop",
+    "dev": "gatsby develop",
     "prebuild": "rm -rf ./build",
     "build": "webpack --mode production",
     "predeploy": "npm run build",
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.4",
-    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-env": "^7.15.4",
     "@babel/preset-react": "^7.14.5",
     "@babel/register": "^7.15.3",
     "babel-eslint": "^10.1.0",

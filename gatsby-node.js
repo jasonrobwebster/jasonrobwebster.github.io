@@ -1,8 +1,8 @@
-import path from "path"
+const path = require("path")
 
-import blogs from "./src/blogs"
+const blogs = require("./src/blogs")
 
-export const createPages = async ({ actions }) => {
+module.exports.createPages = async ({ actions }) => {
   const { createPage } = actions
   const blogTemplate = path.resolve("./src/templates/BlogArticle.jsx")
 
