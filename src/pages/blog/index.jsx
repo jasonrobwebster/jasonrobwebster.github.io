@@ -10,11 +10,10 @@ const Blog = ({ location }) => {
   const publishedBlogs = fp.filter((blog) =>
     isProduction ? blog.published : true
   )(blogs)
-  const lastBlog = fp.maxBy((blog) => blog.lastUpdated)(publishedBlogs)
 
   return (
     <React.Fragment>
-      <PageWrapper lastUpdated={lastBlog ? lastBlog.lastUpdated : null}>
+      <PageWrapper lastUpdated={new Date(2021, 8, 3)}>
         <CardContent>
           {fp.flow(
             fp.sortBy((blog) => -(blog.lastUpdated || new Date())),
@@ -45,7 +44,6 @@ const blogs = [
     tag: "Tech",
     slug: "building-a-personal-blog",
     image: "blog.png",
-    lastUpdated: new Date(2021, 7, 15),
     published: false,
   },
 ]
