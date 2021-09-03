@@ -3,7 +3,7 @@ import React from "react"
 import fp from "lodash/fp"
 import styled from "styled-components"
 
-import blogs from "../../blogs"
+import blogs from "../../shared/blogs"
 import device from "../../shared/devices"
 import { BlogCard, PageWrapper } from "../../components"
 
