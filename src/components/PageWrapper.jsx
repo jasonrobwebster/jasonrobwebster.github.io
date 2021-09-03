@@ -4,12 +4,13 @@ import PropTypes from "prop-types"
 
 import FooterBar from "./FooterBar"
 import Navbar from "./Navbar"
+import PageContent from "../shared/styles/PageContent"
 
 const PageWrapper = ({ children, ...rest }) => {
   return (
     <React.Fragment>
       <Navbar />
-      {children}
+      <PageContent>{children}</PageContent>
       <FooterBar {...rest} />
     </React.Fragment>
   )

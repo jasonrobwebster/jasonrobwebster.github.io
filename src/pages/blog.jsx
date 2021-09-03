@@ -5,8 +5,7 @@ import styled from "styled-components"
 
 import blogs from "../blogs"
 import device from "../shared/devices"
-import { PageContent } from "../shared/styles"
-import { BlogCard, FooterBar, PageWrapper } from "../components"
+import { BlogCard, PageWrapper } from "../components"
 
 const isProduction = process.env.NODE_ENV === "production"
 
