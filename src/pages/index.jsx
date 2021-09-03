@@ -1,7 +1,6 @@
 import React from "react"
 
-import { PageContent } from "../shared/styles"
-import { FooterBar, PageWrapper } from "../components"
+import { PageWrapper } from "../components"
 import { A, HyphenatedText } from "../components/text"
 
 const Home = () => {

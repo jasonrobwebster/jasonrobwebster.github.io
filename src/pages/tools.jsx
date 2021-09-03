@@ -1,6 +1,5 @@
 import React from "react"
 
-import { PageContent } from "../shared/styles"
 import { PageWrapper } from "../components"
 
 const Tools = () => {
