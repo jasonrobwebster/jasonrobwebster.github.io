@@ -3,9 +3,8 @@ import React from "react"
 import fp from "lodash/fp"
 import styled from "styled-components"
 
-import blogs from "../blogs"
-import device from "../shared/devices"
-import { BlogCard, PageWrapper } from "../components"
+import device from "../../shared/devices"
+import { BlogCard, PageWrapper } from "../../components"
 
 const Blog = ({ location }) => {
   const publishedBlogs = fp.filter((blog) =>
@@ -37,6 +36,19 @@ const Blog = ({ location }) => {
 }
 
 export default Blog
+
+// blog datastore
+const blogs = [
+  {
+    title: "Building a personal blog",
+    description: "How I built this blog using React, .",
+    tag: "Tech",
+    slug: "building-a-personal-blog",
+    image: "blog.png",
+    lastUpdated: new Date(2021, 7, 15),
+    published: false,
+  },
+]
 
 const isProduction = process.env.NODE_ENV === "production"
 
