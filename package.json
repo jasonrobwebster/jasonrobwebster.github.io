@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "gatsby develop",
-    "prebuild": "rm -rf ./build",
-    "build": "webpack --mode production",
+    "build": "gatsby build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d public",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
   },
   "repository": {
     "type": "git",
