@@ -7,6 +7,37 @@ import blogs from "../blogs"
 import device from "../shared/devices"
 import { BlogCard, PageWrapper } from "../components"
 
+const Blog = ({ location }) => {
+  const publishedBlogs = fp.filter((blog) =>
+    isProduction ? blog.published : true
+  )(blogs)
+  const lastBlog = fp.maxBy((blog) => blog.lastUpdated)(publishedBlogs)
+
+  return (
+    <React.Fragment>
+      <PageWrapper lastUpdated={lastBlog ? lastBlog.lastUpdated : null}>
+        <CardContent>
+          {fp.flow(
+            fp.sortBy((blog) => -(blog.lastUpdated || new Date())),
+            fp.map((blog) => (
+              <BlogCard
+                key={blog.slug}
+                url={`${location.pathname}/${blog.slug}`}
+                title={blog.title}
+                imageLink={blog.image}
+                description={blog.description}
+                tag={blog.tag}
+              />
+            ))
+          )(publishedBlogs)}
+        </CardContent>
+      </PageWrapper>
+    </React.Fragment>
+  )
+}
+
+export default Blog
+
 const isProduction = process.env.NODE_ENV === "production"
 
 const CardContent = styled.div`
@@ -51,34 +82,3 @@ const CardContent = styled.div`
     }
   }
 `
-
-const Blog = ({ location }) => {
-  const publishedBlogs = fp.filter((blog) =>
-    isProduction ? blog.published : true
-  )(blogs)
-  const lastBlog = fp.maxBy((blog) => blog.lastUpdated)(publishedBlogs)
-
-  return (
-    <React.Fragment>
-      <PageWrapper lastUpdated={lastBlog ? lastBlog.lastUpdated : null}>
-        <CardContent>
-          {fp.flow(
-            fp.sortBy((blog) => -(blog.lastUpdated || new Date())),
-            fp.map((blog) => (
-              <BlogCard
-                key={blog.slug}
-                url={`${location.pathname}/${blog.slug}`}
-                title={blog.title}
-                imageLink={blog.image}
-                description={blog.description}
-                tag={blog.tag}
-              />
-            ))
-          )(publishedBlogs)}
-        </CardContent>
-      </PageWrapper>
-    </React.Fragment>
-  )
-}
-
-export default Blog

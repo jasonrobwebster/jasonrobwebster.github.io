@@ -6,6 +6,37 @@ import styled from "styled-components"
 
 import { HyphenatedText } from "./text"
 
+const BlogCard = ({ url, title, imageLink, description, tag }) => {
+  return (
+    <React.Fragment>
+      <Card to={url}>
+        <Card.Content>
+          <Card.Image src={imageLink} />
+          <Card.Text>
+            <Card.Title>
+              <HyphenatedText>{title}</HyphenatedText>
+            </Card.Title>
+            <Card.Description>
+              <HyphenatedText>{description}</HyphenatedText>
+            </Card.Description>
+            <Card.Tag>{tag}</Card.Tag>
+          </Card.Text>
+        </Card.Content>
+      </Card>
+    </React.Fragment>
+  )
+}
+
+export default BlogCard
+
+BlogCard.propTypes = {
+  url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  imageLink: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+}
+
 const Card = styled(Link)`
   display: block;
   position: relative;
@@ -92,34 +123,3 @@ Card.Tag = styled.div`
 
   color: ${(props) => props.theme.text.muted};
 `
-
-const BlogCard = ({ url, title, imageLink, description, tag }) => {
-  return (
-    <React.Fragment>
-      <Card to={url}>
-        <Card.Content>
-          <Card.Image src={imageLink} />
-          <Card.Text>
-            <Card.Title>
-              <HyphenatedText>{title}</HyphenatedText>
-            </Card.Title>
-            <Card.Description>
-              <HyphenatedText>{description}</HyphenatedText>
-            </Card.Description>
-            <Card.Tag>{tag}</Card.Tag>
-          </Card.Text>
-        </Card.Content>
-      </Card>
-    </React.Fragment>
-  )
-}
-
-BlogCard.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  imageLink: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-}
-
-export default BlogCard

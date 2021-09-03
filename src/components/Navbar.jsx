@@ -5,6 +5,21 @@ import styled from "styled-components"
 
 import device from "../shared/devices"
 
+const Navbar = () => {
+  return (
+    <Nav>
+      <Nav.Menu>
+        <Nav.Link to="/">About</Nav.Link>
+        <Nav.Link to="/blog">Blog</Nav.Link>
+        <Nav.Link to="/tools">Tools</Nav.Link>
+        {/* <Nav.Link to="/contact">Contact</Nav.Link> */}
+      </Nav.Menu>
+    </Nav>
+  )
+}
+
+export default Navbar
+
 const Nav = styled.nav`
   display: flex;
   flex-direction: row;
@@ -52,18 +67,3 @@ Nav.Link = styled(Link)`
     color: ${(props) => props.theme.text.light};
   }
 `
-
-const Navbar = () => {
-  return (
-    <Nav>
-      <Nav.Menu>
-        <Nav.Link to="/">About</Nav.Link>
-        <Nav.Link to="/blog">Blog</Nav.Link>
-        <Nav.Link to="/tools">Tools</Nav.Link>
-        {/* <Nav.Link to="/contact">Contact</Nav.Link> */}
-      </Nav.Menu>
-    </Nav>
-  )
-}
-
-export default Navbar

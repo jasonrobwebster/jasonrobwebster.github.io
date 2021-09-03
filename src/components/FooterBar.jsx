@@ -7,6 +7,48 @@ import { IoLogoLinkedin, IoLogoTwitter, IoMail } from "react-icons/io5"
 
 import { A } from "./text"
 
+const FooterBar = ({ lastUpdated }) => {
+  let lastUpdatedDate = lastUpdated
+  if (!!lastUpdatedDate && typeof lastUpdatedDate !== "object") {
+    lastUpdatedDate = new Date(lastUpdatedDate)
+  }
+  return (
+    <React.Fragment>
+      <Footer>
+        <Footer.Content>
+          <Footer.Text>Copyright &copy; Jason Webster 2021</Footer.Text>
+          <Footer.Socials>
+            <Footer.SocialLink href="mailto:jason@kandua.com">
+              <Footer.Mail />
+            </Footer.SocialLink>
+            <Footer.SocialLink href="https://twitter.com/jasonrobwebster">
+              <Footer.Twitter />
+            </Footer.SocialLink>
+            <Footer.SocialLink href="https://www.linkedin.com/in/jasonrobwebster/">
+              <Footer.LinkedIn />
+            </Footer.SocialLink>
+          </Footer.Socials>
+          {lastUpdatedDate && (
+            <Footer.Text>
+              Last updated:{" "}
+              {lastUpdatedDate.toLocaleString("en-GB", {
+                day: "numeric",
+                year: "numeric",
+                month: "long",
+              })}
+            </Footer.Text>
+          )}
+        </Footer.Content>
+      </Footer>
+    </React.Fragment>
+  )
+}
+// Footer.propTypes = {
+//   lastModified: PropTypes.datetime.isRequired,
+// }
+
+export default FooterBar
+
 const Footer = styled.footer`
   display: flex;
   justify-content: center;
@@ -94,47 +136,3 @@ Footer.Text = styled.div`
   color: ${(props) => props.theme.text.light};
   font-size: 0.8rem;
 `
-
-// const
-
-const FooterBar = ({ lastUpdated }) => {
-  let lastUpdatedDate = lastUpdated
-  if (!!lastUpdatedDate && typeof lastUpdatedDate !== "object") {
-    lastUpdatedDate = new Date(lastUpdatedDate)
-  }
-  return (
-    <React.Fragment>
-      <Footer>
-        <Footer.Content>
-          <Footer.Text>Copyright &copy; Jason Webster 2021</Footer.Text>
-          <Footer.Socials>
-            <Footer.SocialLink href="mailto:jason@kandua.com">
-              <Footer.Mail />
-            </Footer.SocialLink>
-            <Footer.SocialLink href="https://twitter.com/jasonrobwebster">
-              <Footer.Twitter />
-            </Footer.SocialLink>
-            <Footer.SocialLink href="https://www.linkedin.com/in/jasonrobwebster/">
-              <Footer.LinkedIn />
-            </Footer.SocialLink>
-          </Footer.Socials>
-          {lastUpdatedDate && (
-            <Footer.Text>
-              Last updated:{" "}
-              {lastUpdatedDate.toLocaleString("en-GB", {
-                day: "numeric",
-                year: "numeric",
-                month: "long",
-              })}
-            </Footer.Text>
-          )}
-        </Footer.Content>
-      </Footer>
-    </React.Fragment>
-  )
-}
-// Footer.propTypes = {
-//   lastModified: PropTypes.datetime.isRequired,
-// }
-
-export default FooterBar

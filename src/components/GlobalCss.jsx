@@ -3,6 +3,29 @@ import React, { useEffect, useRef, useState } from "react"
 import { createGlobalStyle } from "styled-components"
 import reset from "styled-reset"
 
+const GlobalCss = () => {
+  const [windowSize, setWindowSize] = useState(getWindowSize())
+  const [fontSize, setFontSize] = useState(getFontSize(windowSize))
+
+  if (isBrowser) {
+    useEffect(() => {
+      function handleResize() {
+        setWindowSize(getWindowSize())
+      }
+      window.addEventListener("resize", handleResize)
+      return () => window.removeEventListener("resize", handleResize)
+    }, [])
+  }
+
+  useEffect(() => {
+    setFontSize(getFontSize(windowSize))
+  }, [windowSize])
+
+  return <GlobalStyle fontSize={`${fontSize}px`} />
+}
+
+export default GlobalCss
+
 const isBrowser = typeof window !== "undefined"
 
 const GlobalStyle = createGlobalStyle`
@@ -70,26 +93,3 @@ function getFontSize(windowSize) {
   const bodySize = getBodySize(windowSize)
   return ((bodySize - 320) / (800 - 320)) * (20 - 16) + 16
 }
-
-const GlobalCss = () => {
-  const [windowSize, setWindowSize] = useState(getWindowSize())
-  const [fontSize, setFontSize] = useState(getFontSize(windowSize))
-
-  if (isBrowser) {
-    useEffect(() => {
-      function handleResize() {
-        setWindowSize(getWindowSize())
-      }
-      window.addEventListener("resize", handleResize)
-      return () => window.removeEventListener("resize", handleResize)
-    }, [])
-  }
-
-  useEffect(() => {
-    setFontSize(getFontSize(windowSize))
-  }, [windowSize])
-
-  return <GlobalStyle fontSize={`${fontSize}px`} />
-}
-
-export default GlobalCss
