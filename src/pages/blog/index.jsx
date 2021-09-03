@@ -3,9 +3,9 @@ import React from "react"
 import fp from "lodash/fp"
 import styled from "styled-components"
 
-import blogs from "../blogs"
-import device from "../shared/devices"
-import { BlogCard, PageWrapper } from "../components"
+import blogs from "../../blogs"
+import device from "../../shared/devices"
+import { BlogCard, PageWrapper } from "../../components"
 
 const Blog = ({ location }) => {
   const publishedBlogs = fp.filter((blog) =>
