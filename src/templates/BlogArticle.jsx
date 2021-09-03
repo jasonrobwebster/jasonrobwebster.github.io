@@ -9,19 +9,18 @@ function findBlogBySlug(slug) {
   return blogs.find((blog) => blog.slug === slug)
 }
 
-const BlogArticle = ({ slug }) => {
-  const blog = findBlogBySlug(slug)
-  const blogComponent = blog.component
+const BlogArticle = ({ pageContext }) => {
+  const { renderString, lastUpdated } = pageContext
   return (
     <React.Fragment>
-      <PageWrapper lastUpdated={blog.lastUpdated}>
-        {React.createElement(blogComponent)}
+      <PageWrapper lastUpdated={lastUpdated}>
+        <div
+          className="Blog__Content"
+          dangerouslySetInnerHTML={{ __html: renderString }}
+        />
       </PageWrapper>
     </React.Fragment>
   )
-}
-BlogArticle.propTypes = {
-  slug: PropTypes.string.isRequired,
 }
 
 export default BlogArticle

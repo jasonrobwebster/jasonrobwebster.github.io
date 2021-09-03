@@ -98,6 +98,10 @@ Footer.Text = styled.div`
 // const
 
 const FooterBar = ({ lastUpdated }) => {
+  let lastUpdatedDate = lastUpdated
+  if (!!lastUpdatedDate && typeof lastUpdatedDate !== "object") {
+    lastUpdatedDate = new Date(lastUpdatedDate)
+  }
   return (
     <React.Fragment>
       <Footer>
@@ -114,10 +118,10 @@ const FooterBar = ({ lastUpdated }) => {
               <Footer.LinkedIn />
             </Footer.SocialLink>
           </Footer.Socials>
-          {lastUpdated && (
+          {lastUpdatedDate && (
             <Footer.Text>
               Last updated:{" "}
-              {lastUpdated.toLocaleString("en-GB", {
+              {lastUpdatedDate.toLocaleString("en-GB", {
                 day: "numeric",
                 year: "numeric",
                 month: "long",

@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   siteMetadata: {
     siteUrl: "https://jasonrobwebster.github.io",
     title: "jasonrobwebster",
@@ -14,3 +14,5 @@ module.exports = {
     },
   ],
 }
+
+export default config
