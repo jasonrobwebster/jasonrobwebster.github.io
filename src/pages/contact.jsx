@@ -1,5 +1,6 @@
 import React from "react"
 
+import { PageWrapper } from "../components"
 import { A, HyphenatedText } from "../components/text"
 
 const Contact = () => {
