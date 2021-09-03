@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Link } from "react-router-dom"
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { IoLogoLinkedin, IoLogoTwitter, IoMail } from "react-icons/io5"
@@ -39,6 +39,7 @@ Footer.Socials = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-size: 1rem;
 
   height: 100%;
 
@@ -54,19 +55,19 @@ Footer.SocialLink = styled(A)`
 `
 
 Footer.Mail = styled(IoMail).attrs((props) => ({
-  size: "1.2rem",
+  size: "1.2em",
 }))`
   color: ${(props) => props.theme.text.light};
 `
 
 Footer.LinkedIn = styled(IoLogoLinkedin).attrs((props) => ({
-  size: "1.2rem",
+  size: "1.2em",
 }))`
   color: ${(props) => props.theme.text.light};
 `
 
 Footer.Twitter = styled(IoLogoTwitter).attrs((props) => ({
-  size: "1.2rem",
+  size: "1.2em",
 }))`
   color: ${(props) => props.theme.text.light};
 `
@@ -97,6 +98,10 @@ Footer.Text = styled.div`
 // const
 
 const FooterBar = ({ lastUpdated }) => {
+  let lastUpdatedDate = lastUpdated
+  if (!!lastUpdatedDate && typeof lastUpdatedDate !== "object") {
+    lastUpdatedDate = new Date(lastUpdatedDate)
+  }
   return (
     <React.Fragment>
       <Footer>
@@ -113,10 +118,10 @@ const FooterBar = ({ lastUpdated }) => {
               <Footer.LinkedIn />
             </Footer.SocialLink>
           </Footer.Socials>
-          {lastUpdated && (
+          {lastUpdatedDate && (
             <Footer.Text>
               Last updated:{" "}
-              {lastUpdated.toLocaleString("en-GB", {
+              {lastUpdatedDate.toLocaleString("en-GB", {
                 day: "numeric",
                 year: "numeric",
                 month: "long",

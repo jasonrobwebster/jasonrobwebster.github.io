@@ -1,6 +1,6 @@
 import React from "react"
 
-import { NavLink } from "react-router-dom"
+import { Link } from "gatsby"
 import styled from "styled-components"
 
 import device from "../shared/devices"
@@ -35,7 +35,7 @@ Nav.Menu = styled.div`
   } */
 `
 
-Nav.Link = styled(NavLink)`
+Nav.Link = styled(Link)`
   color: ${(props) => props.theme.text.muted};
 
   font-size: 1.1rem;
@@ -57,9 +57,7 @@ const Navbar = () => {
   return (
     <Nav>
       <Nav.Menu>
-        <Nav.Link to="/" exact>
-          About
-        </Nav.Link>
+        <Nav.Link to="/">About</Nav.Link>
         <Nav.Link to="/blog">Blog</Nav.Link>
         <Nav.Link to="/tools">Tools</Nav.Link>
         {/* <Nav.Link to="/contact">Contact</Nav.Link> */}

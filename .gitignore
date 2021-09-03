@@ -1,3 +1,5 @@
+.cache/
+public/
 build/
 package-lock.json
 
