@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpersonal_site=self.webpackChunkpersonal_site||[]).push([[423],{7901:function(e,t,n){n.r(t);var s=n(7294),a=n(4080);t.default=function(){return s.createElement(a.FE,{lastUpdated:new Date(2021,8,3)},"Test")}}}]);
+//# sourceMappingURL=component---src-pages-blog-building-a-personal-blog-jsx-377f36a097b24ca3a06d.js.map
