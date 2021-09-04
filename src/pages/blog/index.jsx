@@ -39,8 +39,8 @@ export default Blog
 // blog card datastore
 const blogs = [
   {
-    title: "Building a personal blog",
-    description: "How I built this blog using React, .",
+    title: "Building a personal blog with Gatsby JS",
+    description: "How I built this blog with Gatsby JS.",
     tag: "Tech",
     slug: "building-a-personal-blog",
     image: "images/blog.png",
