@@ -36,14 +36,14 @@ const Blog = ({ location }) => {
 
 export default Blog
 
-// blog datastore
+// blog card datastore
 const blogs = [
   {
     title: "Building a personal blog",
     description: "How I built this blog using React, .",
     tag: "Tech",
     slug: "building-a-personal-blog",
-    image: "blog.png",
+    image: "images/blog.png",
     published: false,
   },
 ]
