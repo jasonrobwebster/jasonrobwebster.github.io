@@ -65,6 +65,16 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     color: ${(props) => props.theme.text.color};
 
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 1.166em;
+
+    padding-bottom: 1.5rem;
+  }
+
+  h2 {
+    color: ${(props) => props.theme.text.color};
+
     font-size: 1.8rem;
     font-weight: bold;
     line-height: 1.166em;
