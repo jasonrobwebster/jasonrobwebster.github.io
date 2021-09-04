@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpersonal_site=self.webpackChunkpersonal_site||[]).push([[423],{7901:function(e,l,t){t.r(l);var n=t(7294),a=t(9263);l.default=function(){return n.createElement(a.DO,{lastUpdated:new Date(2021,8,3)},n.createElement("h1",null,"Building a personal blog with Gatsby JS"),n.createElement("p",null),n.createElement("h2",null,"Hello"))}}}]);
+//# sourceMappingURL=component---src-pages-blog-building-a-personal-blog-jsx-7f7088b2b3672bf38ce0.js.map
