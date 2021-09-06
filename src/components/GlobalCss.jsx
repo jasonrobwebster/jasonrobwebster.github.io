@@ -56,10 +56,51 @@ const GlobalStyle = createGlobalStyle`
     text-align: justify;
 
     padding-bottom: 1em;
-    
-    &:last-child {
-      padding-bottom: 0;
-    }
+  }
+
+  code {
+    font-family: 'Monaco', 'Consolas', 'Ubuntu Mono', monospace;
+    font-size: inherit;
+    color: ${(props) => props.theme.code.color}
+  }
+
+  pre {
+    display: block;
+    width: 100%;
+    margin-top: .75rem;
+    margin-bottom: 1.25rem;
+    padding: 0 1rem 0;
+
+    background: ${(props) => props.theme.code.bg};
+    border-radius: .5rem;
+
+    overflow: hidden;
+  }
+
+  pre code {
+    position: relative;
+    display: block;
+
+    font-size: 0.9rem;
+    line-height: 1.25rem;
+
+    page-break-inside: avoid;
+    word-wrap: break-word;
+
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+
+    padding: .75rem 0;
+  }
+
+  p > code {
+    color: ${(props) => props.theme.text.code};
+    background: ${(props) => props.theme.text.codeBg};
+    word-wrap: break-word;
+    box-decoration-break: clone;
+    padding: .1rem .3rem .2rem;
+    border-radius: .2rem;
   }
 
   h1 {
@@ -68,6 +109,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 2.4rem;
     font-weight: bold;
     line-height: 1.166em;
+    text-align: center;
 
     padding-bottom: 1.5rem;
   }
@@ -75,17 +117,46 @@ const GlobalStyle = createGlobalStyle`
   h2 {
     color: ${(props) => props.theme.text.color};
 
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
     line-height: 1.166em;
 
     padding-bottom: 1rem;
+  }
+
+  ol {
+    list-style: none;
+    counter-reset: my-counter;
+    
+    font-size: 1rem;
+    line-height: 1.25em;
+    text-align: justify;
+
+    padding-bottom: 1em;
+    padding-left: 2.5em;
     
     &:last-child {
       padding-bottom: 0;
     }
   }
 
+  ol li {
+    position: relative;
+
+    counter-increment: my-counter;
+    padding-bottom: 0.5em;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  ol li::before {
+    content: counter(my-counter)".";
+
+    position: absolute;
+    left: -1.5em;
+  }
 `
 
 function getWindowSize() {
@@ -96,10 +167,10 @@ function getWindowSize() {
 }
 
 function getBodySize(windowSize) {
-  return Math.max(Math.min(windowSize.width * 0.9, 800), 320)
+  return Math.max(Math.min(windowSize.width * 0.9, 630), 320)
 }
 
 function getFontSize(windowSize) {
   const bodySize = getBodySize(windowSize)
-  return ((bodySize - 320) / (800 - 320)) * (20 - 16) + 16
+  return ((bodySize - 320) / (630 - 320)) * (20 - 16) + 16
 }
