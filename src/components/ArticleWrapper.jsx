@@ -1,11 +1,15 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import PropTypes from "prop-types"
 
+import highlightCode from "../shared/utils/highlightCode"
 import { HyphenatedText } from "./text"
 import PageWrapper from "./PageWrapper"
 
 const ArticleWrapper = ({ children, title, ...rest }) => {
+  useEffect(() => {
+    highlightCode()
+  })
   return (
     <PageWrapper {...rest}>
       <article className="Blog__Content">
