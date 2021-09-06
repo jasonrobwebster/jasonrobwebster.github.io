@@ -10,10 +10,11 @@ const Blog = ({ location }) => {
   const publishedBlogs = fp.filter((blog) =>
     isProduction ? blog.published : true
   )(blogs)
+  const lastBlog = fp.maxBy((blog) => blog.lastUpdated)(blogs)
 
   return (
     <React.Fragment>
-      <PageWrapper lastUpdated={new Date(2021, 8, 3)}>
+      <PageWrapper lastUpdated={lastBlog.lastUpdated}>
         <CardContent>
           {fp.flow(
             fp.sortBy((blog) => -(blog.lastUpdated || new Date())),
@@ -39,12 +40,13 @@ export default Blog
 // blog card datastore
 const blogs = [
   {
-    title: "Building a personal blog with Gatsby JS",
-    description: "How I built this blog with Gatsby JS.",
+    title: "Build­ing an in­ter­ac­tive blog with Re­act and Gats­by JS",
+    description: "How I built a personal blog with React and Gatsby JS.",
     tag: "Tech",
     slug: "building-a-personal-blog",
     image: "images/blog.png",
     published: false,
+    lastUpdated: new Date(2021, 8, 3),
   },
 ]
 
