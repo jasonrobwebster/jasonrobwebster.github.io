@@ -10,7 +10,7 @@ const defaultTheme = {
     codeBg: "#E7E7E7",
   },
   code: {
-    color: "#FFFFFF",
+    color: "#DCDCDC",
     bg: "#15191E",
   },
 }
