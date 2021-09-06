@@ -81,7 +81,7 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     display: block;
 
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.25em;
 
     page-break-inside: avoid;
