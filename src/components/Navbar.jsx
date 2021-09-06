@@ -12,7 +12,7 @@ const Navbar = () => {
         <Nav.Link to="/" activeClassName="active">
           About
         </Nav.Link>
-        <Nav.Link to="/blog" activeClassName="active">
+        <Nav.Link to="/blog" activeClassName="active" partiallyActive={true}>
           Blog
         </Nav.Link>
         <Nav.Link to="/tools" activeClassName="active">
