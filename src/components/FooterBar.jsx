@@ -18,7 +18,7 @@ const FooterBar = ({ lastUpdated }) => {
         <Footer.Content>
           <Footer.Text>Copyright &copy; Jason Webster 2021</Footer.Text>
           <Footer.Socials>
-            <Footer.SocialLink href="mailto:jason@kandua.com">
+            <Footer.SocialLink href="mailto:jasonrobwebster@gmail.com">
               <Footer.Mail />
             </Footer.SocialLink>
             <Footer.SocialLink href="https://twitter.com/jasonrobwebster">

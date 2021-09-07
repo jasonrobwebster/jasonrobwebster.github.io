@@ -58,6 +58,10 @@ const GlobalStyle = createGlobalStyle`
     padding-bottom: 1em;
   }
 
+  b {
+    font-weight: bold;
+  }
+
   code {
     font-family: 'Monaco', 'Consolas', 'Ubuntu Mono', monospace;
     font-size: inherit;
