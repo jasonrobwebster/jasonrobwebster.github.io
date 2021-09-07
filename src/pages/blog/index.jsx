@@ -45,8 +45,8 @@ const blogs = [
     tag: "Tech",
     slug: "building-a-personal-blog",
     image: "/images/blog.png",
-    published: false,
-    lastUpdated: new Date(2021, 8, 3),
+    published: true,
+    lastUpdated: new Date(2021, 8, 7),
   },
 ]
 

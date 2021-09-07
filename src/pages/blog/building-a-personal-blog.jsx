@@ -7,15 +7,15 @@ import { ArticleWrapper, BlogCard } from "../../components"
 
 const BuildingMyOwnBlog = () => {
   return (
-    <ArticleWrapper lastUpdated={new Date(2021, 8, 3)}>
+    <ArticleWrapper lastUpdated={new Date(2021, 8, 7)}>
       <h1>Building an interactive personal blog with React and Gatsby JS</h1>
       <p>
         I've always wanted a personal blog. A small piece of the internet that I
-        can call home. I also really wanted a blog that I created. While I could
-        have very easily turned to tools like Squarespace or Medium, the idea of
-        owning my own website that I built from scratch was something that was
-        very appealing to me. I wanted to learn how to build websites, and the
-        tools needed to build them.
+        could call home. I also really wanted a blog that I created from
+        scratch. While I could have very easily turned to tools like Squarespace
+        or Medium, the idea of owning my own website that I built from scratch
+        was something that was very appealing to me. I wanted to learn how to
+        build websites, and the tools needed to build them.
       </p>
       <p>
         Unlike existing blogs, I also wanted to build a blog that could be
@@ -209,7 +209,76 @@ const BuildingMyOwnBlog = () => {
         </p>
       </section>
       <section>
-        <h2>Deploying to Google Pages</h2>
+        <h2>Deploying to GitHub Pages</h2>
+        <p>
+          GitHub pages is a free way to host a personal blog. In order to set
+          this up, you need to have a repo named{" "}
+          <code>{"<username>"}.github.io</code>. In my case, that's{" "}
+          <code>jasonrobwebster.github.io</code>. Then, in the repo's Settings
+          &gt; Pages, you need to specify the branch that the your site will be
+          built from. Set it to the <code>gh-pages</code> branch. If you don't
+          have this branch yet, create it.
+        </p>
+        <p>
+          We'll deploy our site using the <code>gh-pages</code> package. This
+          will send a local directory to our repo's <code>gh-pages</code>{" "}
+          branch. Since we've set up our repo with the <code>gh-pages</code>{" "}
+          branch, this should work off the bat, but we'll require a small
+          configuration line to make sure we upload the <code>public/</code>{" "}
+          directory.
+        </p>
+        <p>
+          First, we'll install the <code>gh-pages</code> package
+        </p>
+        <pre>
+          <code className="language-shell">npm i gh-pages</code>
+        </pre>
+        <p>
+          Before we deploy our blog, we need to build our pages from our source
+          code. In our <code>package.json</code>, set up the following scripts.
+          Note that we are uploading the <code>public/</code> directory to the{" "}
+          <code>gh-pages</code> branch using the{" "}
+          <code>gh-pages -d pub­lic</code> script.
+        </p>
+        <pre>
+          <code className="language-json">{packageJson}</code>
+        </pre>
+        <p>Then run</p>
+        <pre>
+          <code className="language-shell">npm run build</code>
+        </pre>
+        <p>
+          Our blog will be built in the <code>public/</code> directory. To
+          deploy our built website, we run
+        </p>
+        <pre>
+          <code className="language-shell">npm run deploy</code>
+        </pre>
+        <p>
+          Going to <code>{"<username>"}.github.io</code>, you should see your
+          built website, ready for anyone to use. And because we're using
+          Gatsby, we have prerendered <code>html</code> pages for search engines
+          to crawl (we're still not optimised for SEO though, to do that we can
+          follow{" "}
+          <A href="https://www.gatsbyjs.com/docs/add-seo-component/">
+            this guide
+          </A>
+          ).
+        </p>
+      </section>
+      <section>
+        <h2>Conclusion</h2>
+        <p>
+          We've managed to design, implement, and deploy an interactive personal
+          blog using the React and Gatsby framework. We can use it to write
+          interactive blog posts in React code, and generate an SEO optimized
+          page that we host on GitHub. For any more details, feel free to browse
+          this blog's{" "}
+          <A href="https://github.com/jasonrobwebster/jasonrobwebster.github.io">
+            source code
+          </A>{" "}
+          on GitHub.
+        </p>
       </section>
     </ArticleWrapper>
   )
@@ -370,4 +439,15 @@ const BlogCard = ({ url, title, imageLink, description, tag }) => {
 }
 
 export default BlogCard
+`
+
+const packageJson = `// package.json
+"scripts": {
+  "dev": "gatsby develop",
+  "build": "gatsby build",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d public",
+  "serve": "gatsby serve",
+  "clean": "gatsby clean"
+}
 `
