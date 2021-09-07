@@ -102,15 +102,14 @@ Card.Description = styled.div`
   width: 100%;
   height: 100%;
   max-height: 2.27rem;
+  margin-bottom: auto;
 
   font-size: 0.9rem;
   line-height: 1em;
+  text-align: justify;
 
   color: ${(props) => props.theme.text.color};
   overflow: hidden;
-
-  &:not(:last-child) {
-  }
 `
 
 Card.Tag = styled.div`

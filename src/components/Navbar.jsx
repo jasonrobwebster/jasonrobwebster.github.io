@@ -9,9 +9,15 @@ const Navbar = () => {
   return (
     <Nav>
       <Nav.Menu>
-        <Nav.Link to="/">About</Nav.Link>
-        <Nav.Link to="/blog">Blog</Nav.Link>
-        <Nav.Link to="/tools">Tools</Nav.Link>
+        <Nav.Link to="/" activeClassName="active">
+          About
+        </Nav.Link>
+        <Nav.Link to="/blog" activeClassName="active" partiallyActive={true}>
+          Blog
+        </Nav.Link>
+        <Nav.Link to="/tools" activeClassName="active">
+          Tools
+        </Nav.Link>
         {/* <Nav.Link to="/contact">Contact</Nav.Link> */}
       </Nav.Menu>
     </Nav>

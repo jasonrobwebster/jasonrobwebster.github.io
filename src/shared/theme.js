@@ -6,6 +6,12 @@ const defaultTheme = {
     color: "#000000",
     muted: "#BDBEBE",
     light: "#FFFFFF",
+    code: "#000000",
+    codeBg: "#E7E7E7",
+  },
+  code: {
+    color: "#DCDCDC",
+    bg: "#15191E",
   },
 }
 
