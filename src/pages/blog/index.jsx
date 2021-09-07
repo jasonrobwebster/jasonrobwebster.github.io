@@ -14,7 +14,7 @@ const Blog = ({ location }) => {
 
   return (
     <React.Fragment>
-      <PageWrapper lastUpdated={lastBlog.lastUpdated}>
+      <PageWrapper lastUpdated={lastBlog.lastUpdated} maxWidth="800px">
         <CardContent>
           {fp.flow(
             fp.sortBy((blog) => -(blog.lastUpdated || new Date())),

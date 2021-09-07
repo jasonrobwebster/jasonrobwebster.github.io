@@ -6,11 +6,11 @@ import FooterBar from "./FooterBar"
 import Navbar from "./Navbar"
 import PageContent from "../shared/styles/PageContent"
 
-const PageWrapper = ({ children, ...rest }) => {
+const PageWrapper = ({ children, maxWidth, ...rest }) => {
   return (
     <React.Fragment>
       <Navbar />
-      <PageContent>{children}</PageContent>
+      <PageContent maxWidth={maxWidth}>{children}</PageContent>
       <FooterBar {...rest} />
     </React.Fragment>
   )
@@ -21,6 +21,7 @@ PageWrapper.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.string,
   ]).isRequired,
+  maxWidth: PropTypes.string,
 }
 
 export default PageWrapper
