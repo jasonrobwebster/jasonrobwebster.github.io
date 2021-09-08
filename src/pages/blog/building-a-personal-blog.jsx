@@ -161,6 +161,13 @@ const BuildingMyOwnBlog = () => {
           reading this blog without this solution.
         </p>
         <p>
+          An example of an interactive blog post would be something that uses
+          React's <code>useState</code> hook:
+        </p>
+        <pre>
+          <code className="language-jsx">{exampleBlog}</code>
+        </pre>
+        <p>
           That's it for how I wrote the interactive blog posts. To actually
           connect the blog posts to my blog root endpoint, I set up a
           "datastore" to hold the location and metadata for each of my blogs.
@@ -354,15 +361,38 @@ const folderStructure = `jasonrobwebster.github.io/
   └── root-wrapper.js
 `
 
+const exampleBlog = `// src/pages/example-blog.jsx
+
+import React, { useState } from "react"
+
+import { ArticleWrapper } from "../../components"
+
+const exampleBlog = () => {
+  const [value, setValue] = useState(0)
+
+  const increaseValue = () => {
+    setValue(value + 1)
+  }
+
+  return (
+    <ArticleWrapper lastUpdated={new Date(2021, 8, 7)}>
+      <button onClick={increaseValue}>{\`Value: \${value}\`}</button>
+    </ArticleWrapper>
+  )
+}
+
+export default exampleBlog
+`
+
 const blogConst = `// src/pages/blog/index.jsx
 
 // blog card datastore
 const blogs = [
   {
-    title: "Build­ing an in­ter­ac­tive blog with Re­act and Gats­by JS",
-    description: "How I built a personal blog with React and Gatsby JS.",
+    title: "Example blog title",
+    description: "Example blog description",
     tag: "Tech",
-    slug: "building-a-personal-blog",
+    slug: "example-blog", // for src/pages/blog/example-blog.jsx
     image: "images/blog.png",
     published: false,
     lastUpdated: new Date(2021, 8, 3),
