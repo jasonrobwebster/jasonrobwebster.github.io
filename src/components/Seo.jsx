@@ -6,8 +6,8 @@ import { useLocation } from "@reach/router"
 import { graphql, useStaticQuery } from "gatsby"
 
 const Seo = ({ title, description, image, imageAlt, article }) => {
-  const pathname = useLocation()
-  const site = useStaticQuery(query)
+  const { pathname } = useLocation()
+  const { site } = useStaticQuery(query)
 
   const {
     defaultTitle,
@@ -69,7 +69,7 @@ Seo.defaultProps = {
 }
 
 const query = graphql`
-  query SEO {
+  query Seo {
     site {
       siteMetadata {
         defaultTitle: title
