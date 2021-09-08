@@ -28,6 +28,7 @@ const Blog = () => {
                 url={blog.slug}
                 title={blog.title}
                 imageLink={blog.image}
+                imageAlt={blog.imageAlt}
                 description={blog.description}
                 tag={blog.tag}
               />
@@ -49,6 +50,7 @@ const blogs = [
     tag: "Tech",
     slug: "building-an-interactive-personal-blog",
     image: "/images/blog.png",
+    imageAlt: "A blog post",
     published: true,
     lastUpdated: new Date(2021, 8, 7),
   },

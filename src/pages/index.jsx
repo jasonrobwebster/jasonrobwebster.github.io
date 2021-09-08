@@ -18,8 +18,8 @@ const Home = () => {
             <b>Personally,</b> I'm a software and science loving guy who likes
             figuring out how stuff works. I'm into maths, physics, tech,
             philosophy, and video games. In my spare time, I like writing
-            articles for this blog, learning new tech stacks. I also usually
-            play indie games, but right now I'm playing "Legends of Runeterra".
+            articles for this blog, learning new tech stacks, and playing indie
+            games.
           </p>
           <p>
             <b>Professionally,</b> I'm a full stack engineer and data scientist.
@@ -35,9 +35,7 @@ const Home = () => {
           <p>
             I built this blog as a means of sharing what I have learnt about
             data science, tech, stats, and anything else I enjoy really. I built
-            and designed it from scratch using the Gatsby JS framework. I wrote
-            an article about how I built it{" "}
-            <A href="/blog/building-a-personal-blog">here</A>. The{" "}
+            and designed it from scratch using the Gatsby JS framework. The{" "}
             <A href="https://github.com/jasonrobwebster/jasonrobwebster.github.io">
               source code
             </A>{" "}
@@ -69,6 +67,7 @@ const Center = styled.div`
 
 const Me = styled.img.attrs((props) => ({
   src: props.src || "/images/me.jpg",
+  alt: props.alt || "The author of this website, in a suit, smiling.",
 }))`
   width: 100%;
   max-width: 400px;

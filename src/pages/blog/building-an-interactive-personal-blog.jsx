@@ -210,6 +210,7 @@ const BuildingMyOwnBlog = () => {
             description="How I built a personal blog with React and Gatsby JS."
             tag="Tech"
             imageLink="/images/blog.png"
+            imageAlt="A blog post"
           />
         </CardDisplay>
         <p>

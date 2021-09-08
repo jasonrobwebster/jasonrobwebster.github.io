@@ -6,12 +6,12 @@ import styled from "styled-components"
 
 import { HyphenatedText } from "./text"
 
-const BlogCard = ({ url, title, imageLink, description, tag }) => {
+const BlogCard = ({ url, title, imageLink, imageAlt, description, tag }) => {
   return (
     <React.Fragment>
       <Card to={url}>
         <Card.Content>
-          <Card.Image src={imageLink} />
+          <Card.Image src={imageLink} alt={imageAlt} />
           <Card.Text>
             <Card.Title>
               <HyphenatedText>{title}</HyphenatedText>
@@ -33,6 +33,7 @@ BlogCard.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   imageLink: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
 }
