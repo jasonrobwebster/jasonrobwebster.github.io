@@ -4,14 +4,16 @@ import PropTypes from "prop-types"
 
 import FooterBar from "./FooterBar"
 import Navbar from "./Navbar"
+import Seo from "./Seo"
 import PageContent from "../shared/styles/PageContent"
 
-const PageWrapper = ({ children, maxWidth, ...rest }) => {
+const PageWrapper = ({ children, maxWidth, lastUpdated, ...seo }) => {
   return (
     <React.Fragment>
+      <Seo {...seo} />
       <Navbar />
       <PageContent maxWidth={maxWidth}>{children}</PageContent>
-      <FooterBar {...rest} />
+      <FooterBar lastUpdated={lastUpdated} />
     </React.Fragment>
   )
 }
@@ -22,6 +24,7 @@ PageWrapper.propTypes = {
     PropTypes.string,
   ]).isRequired,
   maxWidth: PropTypes.string,
+  lastUpdated: PropTypes.instanceOf(Date),
 }
 
 export default PageWrapper

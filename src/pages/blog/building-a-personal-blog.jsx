@@ -7,7 +7,11 @@ import { ArticleWrapper, BlogCard } from "../../components"
 
 const BuildingMyOwnBlog = () => {
   return (
-    <ArticleWrapper lastUpdated={new Date(2021, 8, 7)}>
+    <ArticleWrapper
+      title="Building an interactive personal blog with React and Gatsby JS"
+      description="How to build an interactive personal blog with the React and Gatsby JS frameworks."
+      lastUpdated={new Date(2021, 8, 7)}
+    >
       <h1>Building an interactive personal blog with React and Gatsby JS</h1>
       <p>
         I've always wanted a personal blog. A small piece of the internet that I

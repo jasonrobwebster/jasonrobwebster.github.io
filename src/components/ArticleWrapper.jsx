@@ -6,12 +6,12 @@ import highlightCode from "../shared/utils/highlightCode"
 import { HyphenatedText } from "./text"
 import PageWrapper from "./PageWrapper"
 
-const ArticleWrapper = ({ children, title, ...rest }) => {
+const ArticleWrapper = ({ children, lastUpdated, ...seo }) => {
   useEffect(() => {
     highlightCode()
   })
   return (
-    <PageWrapper {...rest}>
+    <PageWrapper lastUpdated={lastUpdated} article={true} {...seo}>
       <article className="Blog__Content">
         <HyphenatedText>{children}</HyphenatedText>
       </article>
@@ -27,4 +27,5 @@ ArticleWrapper.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.string,
   ]).isRequired,
+  lastUpdated: PropTypes.instanceOf(Date),
 }

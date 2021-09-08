@@ -1,7 +1,12 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://jasonrobwebster.github.io",
-    title: "jasonrobwebster",
+    title: "jasonrobwebster.github.io",
+    titleTemplate: "%s - jasonrobwebster.github.io",
+    description: "Blog on tech, data science, maths, and other things.",
+    image: "/images/logo.png",
+    imageAlt: "The letter J on a dark background",
+    twitterUsername: "@jasonrobwebster",
   },
   plugins: [
     "gatsby-plugin-styled-components",
