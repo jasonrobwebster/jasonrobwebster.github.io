@@ -43,7 +43,7 @@ const blogs = [
     title: "Build­ing an in­ter­ac­tive blog with Re­act and Gats­by JS",
     description: "How I built a personal blog with React and Gatsby JS.",
     tag: "Tech",
-    slug: "building-a-personal-blog",
+    slug: "building-an-interactive-personal-blog",
     image: "/images/blog.png",
     published: true,
     lastUpdated: new Date(2021, 8, 7),
