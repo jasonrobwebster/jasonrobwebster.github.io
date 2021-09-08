@@ -6,7 +6,7 @@ import styled from "styled-components"
 import device from "../../shared/devices"
 import { BlogCard, PageWrapper } from "../../components"
 
-const Blog = ({ location }) => {
+const Blog = () => {
   const publishedBlogs = fp.filter((blog) =>
     isProduction ? blog.published : true
   )(blogs)
@@ -14,14 +14,18 @@ const Blog = ({ location }) => {
 
   return (
     <React.Fragment>
-      <PageWrapper lastUpdated={lastBlog.lastUpdated} maxWidth="800px">
+      <PageWrapper
+        lastUpdated={lastBlog.lastUpdated}
+        title="Blog"
+        maxWidth="800px"
+      >
         <CardContent>
           {fp.flow(
             fp.sortBy((blog) => -(blog.lastUpdated || new Date())),
             fp.map((blog) => (
               <BlogCard
                 key={blog.slug}
-                url={`${location.pathname}/${blog.slug}`}
+                url={blog.slug}
                 title={blog.title}
                 imageLink={blog.image}
                 description={blog.description}
@@ -43,7 +47,7 @@ const blogs = [
     title: "Build­ing an in­ter­ac­tive blog with Re­act and Gats­by JS",
     description: "How I built a personal blog with React and Gatsby JS.",
     tag: "Tech",
-    slug: "building-a-personal-blog",
+    slug: "building-an-interactive-personal-blog",
     image: "/images/blog.png",
     published: true,
     lastUpdated: new Date(2021, 8, 7),
