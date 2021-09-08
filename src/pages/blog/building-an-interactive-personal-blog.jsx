@@ -411,7 +411,7 @@ import fp from "lodash/fp"
 
 import { BlogCard, PageWrapper } from "../../components"
 
-const Blog = ({ location }) => {
+const Blog = () => {
   const publishedBlogs = fp.filter((blog) =>
     isProduction ? blog.published : true
   )(blogs)
@@ -426,7 +426,7 @@ const Blog = ({ location }) => {
             fp.map((blog) => (
               <BlogCard
                 key={blog.slug}
-                url={\`\${location.pathname}/\${blog.slug}\`}
+                url={blog.slug}
                 title={blog.title}
                 imageLink={blog.image}
                 description={blog.description}

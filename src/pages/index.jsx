@@ -8,7 +8,7 @@ import { A, HyphenatedText } from "../components/text"
 const Home = () => {
   return (
     <React.Fragment>
-      <PageWrapper lastUpdated={new Date(2021, 8, 7)}>
+      <PageWrapper title="About" lastUpdated={new Date(2021, 8, 7)}>
         <HyphenatedText className="Home__Content">
           <Center>
             <Me />
