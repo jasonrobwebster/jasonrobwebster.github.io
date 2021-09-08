@@ -37,10 +37,6 @@ const Nav = styled.nav`
 
   background-color: ${(props) => props.theme.primary};
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-
-  @media (${device.tablet}) {
-    display: flex;
-  }
 `
 
 Nav.Menu = styled.div`

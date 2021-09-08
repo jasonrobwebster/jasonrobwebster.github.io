@@ -65,7 +65,7 @@ const CardContent = styled.div`
     margin-bottom: 2rem;
   }
 
-  @media (${device.tablet}) {
+  @media ${device.tablet} {
     justify-content: left;
     & > :nth-child(2n + 1) {
       margin-left: calc((100% - 2 * 12.5rem) / 3);
@@ -78,7 +78,7 @@ const CardContent = styled.div`
     }
   }
 
-  @media (${device.desktop}) {
+  @media ${device.desktop} {
     & > :nth-child(3n + 1) {
       margin-left: 0;
       margin-right: calc((100% - 3 * 12.5rem) / 4);
